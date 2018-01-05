@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/login.css")
+    @Styles.Render("~/Content/font-awesome.min.css")
+    @Scripts.Render("~/bundles/jquery")
+    
+</head>
+<body>
+    <div class="pen-title">        
+    </div>    
+    <div class="module form-module">
+        <div class="toggle">
+            <i class="fa fa-times fa-pencil"></i>
+            <div class="tooltip">Click Me</div>
+        </div>
+        <div class="form">
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <a href="@Url.Action("Index","Home",null)" class="btn btn-info">Login</a>
+            </form>
+        </div>
+        <div class="form">
+            <h2>Create an account</h2>
+            <form>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <input type="email" placeholder="Email Address" />
+                <input type="tel" placeholder="Phone Number" />
+                <button>Register</button>
+            </form>
+        </div>
+        <div class="cta"><a href="#">Forgot your password?</a></div>
+    </div>
+    @Scripts.Render("~/Scripts/login.js");    
+</body>
+</html>

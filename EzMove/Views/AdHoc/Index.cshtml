@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts
+{
+<script type="text/javascript">
+    function CreateTrip() {
+        alert("Trip Created Successfully!!!");
+    }
+</script>
+    }
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form>
+                <h3>Vehicles</h3>
+                @foreach (var item in ViewBag.Vehicles)
+            {
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="check"> <span class="label-text">@item.Number</span>
+                        </label>
+                    </div>
+                }
+            </form>
+        </div>
+        <div class="col-md-4">
+            <form>
+                <h3>Employees</h3>
+                @foreach (var item in ViewBag.Employees)
+            { <div class="form-check">
+            <label>
+                <input type="checkbox" name="checkbox"> <span class="label-text">@(String.Format("{0} {1}", item.FirstName, @item.LastName))</span>
+            </label>
+        </div>   }
+
+            </form>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <button class="btn btn-info" onclick="CreateTrip()">CREATE TRIP</button>
+    </div>
+</div>

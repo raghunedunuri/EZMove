@@ -1,0 +1,111 @@
+﻿@using EzMove.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+@model List<ShiftInfo>
+<div ui-view autoscroll="false">
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 text-center">
+                    <a href="@Url.Action("Index","Roster",null)">
+                        <span class="fa-stack fa-5x fa-lg">
+                            <i class="icon fa fa-circle fa-5x fa-stack-2x"></i>
+                            <i class="icon fa  fa-calendar-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <p class="text-center">Roster</p>
+                </div>
+                <div class="col-sm-4 col-md-4 text-center">
+                    <a href="@Url.Action("Index","AdHoc",null)">
+                        <span class="fa-stack fa-5x fa-lg">
+                            <i class="icon fa fa-circle fa-5x fa-stack-2x"></i>
+                            <i class="icon fa fa-road fa-stack-1x fa-inverse"></i>
+
+                        </span>
+                    </a>
+                    <p class="text-center">Adhocs</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 text-center">
+                    <a href="@Url.Action("Index","Shifts",null)">
+                        <span class="fa-stack fa-5x fa-lg">
+                            <i class="icon fa fa-circle fa-5x fa-stack-2x"></i>
+                            <i class="icon fa fa-calendar fa-stack-1x fa-inverse"></i>
+
+                        </span>
+                    </a>
+                    <p class="text-center">Shifts</p>
+                </div>
+                <div class="col-sm-4 col-md-4 text-center">
+                    <a href="@Url.Action("Index","Vehicles",null)">
+                        <span class="fa-stack fa-5x fa-lg">
+                            <i class="icon fa fa-circle fa-5x fa-stack-2x"></i>
+                            <i class="icon fa fa-taxi fa-stack-1x fa-inverse"></i>
+
+                        </span>
+                        <p class="text-center">Vehicles</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 text-center">
+                    <a href="@Url.Action("Index","Trips",null)">
+                        <span class="fa-stack fa-5x fa-lg">
+                            <i class="icon fa fa-circle fa-5x fa-stack-2x"></i>
+                            <i class="icon fa fa-road fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <p class="text-center">Trips</p>
+                </div>
+                <div class="col-sm-4 col-md-4 text-center">
+                    <a href="@Url.Action("Index","Drivers",null)">
+                        <span class="fa-stack fa-5x fa-lg">
+                            <i class="icon fa fa-circle fa-5x fa-stack-2x"></i>
+                            <i class="icon fa fa-users fa-stack-1x fa-inverse"></i>
+
+                        </span>
+                    </a>
+                    <p class="text-center">Drivers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5" style="margin-left:-70px">
+            @foreach (ShiftInfo shiftinfo in Model){
+                <div>
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge" style="@(shiftinfo.Status == "Started" ? "background-color:green" : "background-color:orange")">@shiftinfo.Shift.ShiftName</div>
+                            <div class="timeline-panel">                                
+                                <div class="timeline-heading">
+                                    <span>Employees:</span><span class="timeline-title"> @shiftinfo.TotalEmployees</span><small class="text-muted floatright"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;Starts at: @shiftinfo.StartTime.ToShortTimeString()</small>
+                                    <p><span>Vehicles Required :</span><span class="timeline-title"> @shiftinfo.Vechiles</span></p>
+                                    <p></p>                                    
+                                </div>                                
+                                <div class="timeline-body" style="@(shiftinfo.Status == "Started" ? "display:block" : "display:none")">
+                                    <p>Status : <strong>@shiftinfo.Status</strong></p>
+                                    <p>Trips Started : <strong>@shiftinfo.TripsStarted</strong></p>
+                                    <p>Trips InProgress : <strong>@shiftinfo.TripsInProgress</strong></p>
+                                    <p>Trips Completed : <strong>@shiftinfo.TripsCompleted</strong></p>
+                                </div>
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+            }
+            
+            @*<div class="rectangle">
+                        <img class="circle" src="~/images/gb.svg" />
+                    </div>
+                    <div class="rectangle">
+                        <img class="circle" src="~/images/us.svg" />
+                    </div>
+                    <div class="rectangle">
+                        <img class="circle" src="~/images/in.svg" />
+                    </div>
+                    <div class="rectangle">
+                        <img class="circle" src="~/images/au.svg" />
+                    </div>
+                </div>*@
+        </div>
+    </div>
