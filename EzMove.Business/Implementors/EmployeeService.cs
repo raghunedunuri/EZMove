@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using EzMove.Contracts;
 using EzMove.DataAcess;
@@ -52,5 +53,11 @@ namespace EzMove.Business
         {
             employeeRepository.UpdateEmployeeShift(LoginID, Shift);
         }
+
+        public List<EmployeeInfo> GetEmployeeByShift(string shiftname)
+        {
+            return employeeRepository.GetEmployeeByShift(shiftname);
+        }
+
     }
 }

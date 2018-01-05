@@ -1,11 +1,14 @@
 ﻿using EzMove.Contracts;
 using System;
+using System.Collections.Generic;
 
 namespace EzMove.Business
 {
     public interface IEmployeeService
     {
         EmployeeInfo GetEmployeeInfo(int LoginID);
+
+        List<EmployeeInfo> GetEmployeeByShift(string shiftname);
 
         Trip GetEmployeeCurrentTrip(int LoginID);
 

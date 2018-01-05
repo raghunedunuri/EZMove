@@ -1,5 +1,6 @@
 ﻿using EzMove.Contracts;
 using System;
+using System.Collections.Generic;
 
 namespace EzMove.DataAcess
 {
@@ -20,5 +21,7 @@ namespace EzMove.DataAcess
         void DeActivateEmployee(int LoginID);
 
         void UpdateEmployeeShift(int LoginID, string Shift);
+
+        List<EmployeeInfo> GetEmployeeByShift(string shiftname);
     }
 }

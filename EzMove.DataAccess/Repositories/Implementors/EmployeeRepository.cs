@@ -19,7 +19,7 @@ namespace EzMove.DataAcess.Repositories
             EmployeeInfo ei = new EmployeeInfo();
 
             dbHelper.CreateCommand("getemployeeinfo", System.Data.CommandType.StoredProcedure);
-            dbHelper.AddParameter("userid",LoginID);
+            dbHelper.AddParameter("userid", LoginID);
             IDataReader dr = dbHelper.ExecuteReader();
 
             while (dr.Read())
@@ -64,7 +64,7 @@ namespace EzMove.DataAcess.Repositories
             return new EmployeeShiftInfo();
         }
 
-        public List<EmployeeInfo> GetEmployeeListBasedOnShift( string shift )
+        public List<EmployeeInfo> GetEmployeeListBasedOnShift(string shift)
         {
             return new List<EmployeeInfo>();
         }
@@ -95,13 +95,31 @@ namespace EzMove.DataAcess.Repositories
         public void UpdateEmployeeShift(int LoginID, string Shift)
         { }
 
-        //public Item GetItemWithBarCode(string BarCode)
-        //{
-        //    dbHelper.CreateCommand(" transpire_products.search_withbarcode", CommandType.StoredProcedure);
-        //    dbHelper.AddParameter("barcode", BarCode);
+        public List<EmployeeInfo> GetEmployeeByShift(string shiftname)
+        {
+            dbHelper.CreateCommand("getemployeesonshift", System.Data.CommandType.StoredProcedure);
+            dbHelper.AddParameter("shiftname", shiftname);
 
-        //    DataSet ds = dbHelper.ExecuteDataSet();
-        //    return ds.Tables[0].To<Item>();
-        //}
+            IDataReader dr = dbHelper.ExecuteReader();
+            List<EmployeeInfo> lstEmpInfo = new List<EmployeeInfo>();
+
+            while (dr.Read())
+            {
+                EmployeeInfo ei = new EmployeeInfo();
+                ei.EmployeeID = Convert.ToInt32(dr["USERID"]);
+                ei.ShiftInfo = new EmployeeShiftInfo();
+                ei.ShiftInfo.CurrentShift = dr["ShiftName"] != null ? dr["ShiftName"].ToString() : String.Empty;
+                ei.PhNo = dr["Phone"].ToString();
+                ei.Email = dr["Email"].ToString();
+                ei.FirstName = dr["FirstName"].ToString();
+                ei.LastName = dr["FirstName"].ToString();
+                ei.Gender = dr["Gender"].ToString();
+                ei.UserType = dr["UserType"].ToString();
+                ei.UserStatus = dr["UserStatus"].ToString();
+                lstEmpInfo.Add(ei);
+            }
+            dr.Close();
+            return lstEmpInfo;
+        }
     }
 }

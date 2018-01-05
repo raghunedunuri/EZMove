@@ -11,8 +11,8 @@ namespace EzMove.Controllers
         // GET: AdHoc
         public ActionResult Index()
         {
-            ViewBag.Vehicles = new Models.Vehicle().GetVehicles();
-            ViewBag.Employees = new Models.EmployeeInfo().GetEmployeeInfo();
+            //ViewBag.Vehicles = new Models.Vehicle().GetVehicles();
+            //ViewBag.Employees = new Models.EmployeeInfo().GetEmployeeInfo();
             return View();
         }
     }
