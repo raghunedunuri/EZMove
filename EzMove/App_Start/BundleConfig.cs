@@ -29,7 +29,7 @@ namespace EzMove
                       "~/Scripts/app/controllers/employeecontroller.js",
                       "~/Scripts/ui-bootstrap-tpls-2.5.0.min.js")
                       );
-
+            //Style Bundles
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
