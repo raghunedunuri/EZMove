@@ -23,6 +23,7 @@ namespace EzMove.DataAcess
             dbHelper.CreateCommand("getcurrenttripbydriver", System.Data.CommandType.StoredProcedure);
             dbHelper.AddParameter("currID", LoginID);
             DataSet ds = dbHelper.ExecuteDataSet();
+
             return DataMapper.ConvertTripFromDataSet(ds);
         }
 
@@ -32,7 +33,8 @@ namespace EzMove.DataAcess
         }
 
         public void UpdateDriverPhoneNumber(int LoginID, string PhoneNumber)
-        { }
+        {
+        }
 
         public void UpdateDriverEmail(int LoginID, string Email)
         { }

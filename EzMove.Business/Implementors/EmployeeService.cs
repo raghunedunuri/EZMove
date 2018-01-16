@@ -59,5 +59,10 @@ namespace EzMove.Business
             return employeeRepository.GetEmployeeByShift(shiftname);
         }
 
+        public List<VechileInfo> GetVechileInfo()
+        {
+            return employeeRepository.GetVechileInfo();
+        }
+
     }
 }

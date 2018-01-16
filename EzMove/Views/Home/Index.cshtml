@@ -1,8 +1,9 @@
 ﻿@using EzMove.Models
+@using EzMove.Contracts
 @{
     ViewBag.Title = "Home Page";
 }
-@model List<ShiftInfo>
+@model List<ShiftDashboardInfo>
 <div ui-view autoscroll="false">
     <div class="row">
         <div class="col-sm-6 col-md-6">
@@ -71,29 +72,31 @@
             </div>
         </div>
         <div class="col-sm-5" style="margin-left:-70px">
-            @foreach (ShiftInfo shiftinfo in Model){
+            @foreach (ShiftDashboardInfo shiftinfo in Model)
+            {
                 <div>
                     <ul class="timeline">
                         <li>
-                            <div class="timeline-badge" style="@(shiftinfo.Status == "Started" ? "background-color:green" : "background-color:orange")">@shiftinfo.Shift.ShiftName</div>
-                            <div class="timeline-panel">                                
+                            <div class="timeline-badge" style="@(shiftinfo.PickUpTrip.Status == "INPROGRESS" ? "background-color:green" : "background-color:orange")">@shiftinfo.ShiftName</div>
+                            <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <span>Employees:</span><span class="timeline-title"> @shiftinfo.TotalEmployees</span><small class="text-muted floatright"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;Starts at: @shiftinfo.StartTime.ToShortTimeString()</small>
-                                    <p><span>Vehicles Required :</span><span class="timeline-title"> @shiftinfo.Vechiles</span></p>
-                                    <p></p>                                    
-                                </div>                                
-                                <div class="timeline-body" style="@(shiftinfo.Status == "Started" ? "display:block" : "display:none")">
-                                    <p>Status : <strong>@shiftinfo.Status</strong></p>
-                                    <p>Trips Started : <strong>@shiftinfo.TripsStarted</strong></p>
-                                    <p>Trips InProgress : <strong>@shiftinfo.TripsInProgress</strong></p>
-                                    <p>Trips Completed : <strong>@shiftinfo.TripsCompleted</strong></p>
+                                    <span>PickUp Trip Info: </span><span class="timeline-title"> @shiftinfo.PickUpTrip.Status</span><small class="text-muted floatright"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;Time: @shiftinfo.PickUpTrip.ShiftPickStartTime</small>
+                                    <p><span>Vehicles :</span><span class="timeline-title"> @shiftinfo.PickUpTrip.NoOfVechiles</span>&nbsp;&nbsp;&nbsp;&nbsp;Boarded: @shiftinfo.PickUpTrip.NoOfEmployeesBoarded</p>
+                                    <p> Yet to Board: @shiftinfo.PickUpTrip.NoOfEmployeesYetToBoard&nbsp;&nbsp;&nbsp;&nbsp;No Shows: @shiftinfo.PickUpTrip.NoOfEmployeesNoShow</p>
+                                    <p></p>
+                                </div>
+                                <div class="timeline-heading">
+                                    <span>Return Trip Info: </span><span class="timeline-title"> @shiftinfo.ReturnTrip.Status</span><small class="text-muted floatright"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;Time: @shiftinfo.ReturnTrip.ShiftPickStartTime</small>
+                                    <p><span>Vehicles :</span><span class="timeline-title"> @shiftinfo.ReturnTrip.NoOfVechiles</span>&nbsp;&nbsp;&nbsp;&nbsp;Boarded: @shiftinfo.ReturnTrip.NoOfEmployeesBoarded</p>
+                                    <p> Yet to Board: @shiftinfo.ReturnTrip.NoOfEmployeesYetToBoard&nbsp;&nbsp;&nbsp;&nbsp;No Shows: @shiftinfo.ReturnTrip.NoOfEmployeesNoShow</p>
+
                                 </div>
                             </div>
-                        </li>                        
+                        </li>
                     </ul>
                 </div>
             }
-            
+
             @*<div class="rectangle">
                         <img class="circle" src="~/images/gb.svg" />
                     </div>
@@ -109,3 +112,4 @@
                 </div>*@
         </div>
     </div>
+</div>

@@ -12,6 +12,7 @@ namespace EzMove.Controllers
     public class HomeController : Controller
     {
         IDashboardService DashboardService;
+      
         public HomeController(IDashboardService dashboardService)
         {
             this.DashboardService = dashboardService;
@@ -19,8 +20,9 @@ namespace EzMove.Controllers
 
         public ActionResult Index()
         {
+           
             DashboardInfo dInfo = DashboardService.GetDashBoardInfo();
-            return View(dInfo);
+            return View(dInfo.ShiftSummary);
         }
 
         public ActionResult About()

@@ -24,21 +24,37 @@ namespace EzMove.DataAccess.Repositories.Implementors
             IDataReader dr = dbHelper.ExecuteReader();
 
             DashboardInfo dashboardInfo = new DashboardInfo();
-            dashboardInfo.ShiftSummary = new List<ShiftInfo>();
+            dashboardInfo.ShiftSummary = new List<ShiftDashboardInfo>();
+            string str = String.Empty;
+
+            ShiftDashboardInfo prev = null;
             while (dr.Read())
             {
-                ShiftInfo sInfo = new ShiftInfo();
-                sInfo.NoOfEmployeesBoarded = Convert.ToInt32(dr["BoardedMembers"]);
+                string shiftname = dr["shiftname"].ToString();
+                bool IsReturnTrip = !Convert.ToBoolean(dr["IsPickUpTrip"]);
+
+                ShiftRowInfo shiftRow = new ShiftRowInfo();
+                shiftRow.NoOfEmployeesBoarded = Convert.ToInt32(dr["BoardedMembers"]);
                 int totalPlanned = Convert.ToInt32(dr["TotalPlanned"]);
-                sInfo.ShiftName = dr["shiftname"].ToString();
-                sInfo.NoOfVechiles = Convert.ToInt32(dr["VechileCount"]);
-                sInfo.Status = dr["currentstatus"].ToString();
-                sInfo.NoOfEmployeesNoShow = sInfo.Status.ToUpper() == "COMPLETED" ? totalPlanned - sInfo.NoOfEmployeesBoarded : 0;
-                sInfo.NoOfEmployeesYetToBoard = sInfo.Status.ToUpper() != "COMPLETED" ? totalPlanned - sInfo.NoOfEmployeesBoarded : 0;
-                sInfo.IsReturnTrip = !Convert.ToBoolean( dr["IsPickUpTrip"]);
-                sInfo.ShiftStartTime = dr["StartTime"].ToString();
-                dashboardInfo.ShiftSummary.Add(sInfo);
+                shiftRow.NoOfVechiles = Convert.ToInt32(dr["VechileCount"]);
+                shiftRow.Status = dr["currentstatus"].ToString();
+                shiftRow.NoOfEmployeesNoShow = shiftRow.Status.ToUpper() == "COMPLETED" ? totalPlanned - shiftRow.NoOfEmployeesBoarded : 0;
+                shiftRow.NoOfEmployeesYetToBoard = shiftRow.Status.ToUpper() != "COMPLETED" ? totalPlanned - shiftRow.NoOfEmployeesBoarded : 0;
+                shiftRow.ShiftPickStartTime = dr["ShiftStartTime"].ToString();
+
+                if (str != shiftname)
+                {
+                    str = shiftname;
+                    prev = new ShiftDashboardInfo();
+                    prev.ShiftName = shiftname;
+                    dashboardInfo.ShiftSummary.Add(prev);
+                }
+                if (IsReturnTrip)
+                    prev.ReturnTrip = shiftRow;
+                else
+                    prev.PickUpTrip = shiftRow;
             }
+            dr.Close();
             return dashboardInfo;
         }
     }

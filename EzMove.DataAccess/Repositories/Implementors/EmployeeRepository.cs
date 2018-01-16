@@ -100,10 +100,10 @@ namespace EzMove.DataAcess.Repositories
             dbHelper.CreateCommand("getemployeesonshift", System.Data.CommandType.StoredProcedure);
             dbHelper.AddParameter("shiftname", shiftname);
 
-            IDataReader dr = dbHelper.ExecuteReader();
+            DataSet ds = dbHelper.ExecuteDataSet();
             List<EmployeeInfo> lstEmpInfo = new List<EmployeeInfo>();
 
-            while (dr.Read())
+            foreach( DataRow dr in ds.Tables[0].Rows)
             {
                 EmployeeInfo ei = new EmployeeInfo();
                 ei.EmployeeID = Convert.ToInt32(dr["USERID"]);
@@ -118,7 +118,25 @@ namespace EzMove.DataAcess.Repositories
                 ei.UserStatus = dr["UserStatus"].ToString();
                 lstEmpInfo.Add(ei);
             }
-            dr.Close();
+            return lstEmpInfo;
+        }
+
+        public List<VechileInfo> GetVechileInfo()
+        {
+            dbHelper.CreateCommand("getvechiles", System.Data.CommandType.StoredProcedure);
+           
+            DataSet ds = dbHelper.ExecuteDataSet();
+            List<VechileInfo> lstEmpInfo = new List<VechileInfo>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                VechileInfo ei = new VechileInfo();
+                ei.Capacity = Convert.ToInt32(dr["VechileCapacity"]);
+                ei.Number = dr["VechileNo"].ToString();
+                ei.CompanyName = dr["VechileName"].ToString();
+                ei.Type = dr["VechileType"].ToString();
+                lstEmpInfo.Add(ei);
+            }
             return lstEmpInfo;
         }
     }

@@ -23,5 +23,7 @@ namespace EzMove.DataAcess
         void UpdateEmployeeShift(int LoginID, string Shift);
 
         List<EmployeeInfo> GetEmployeeByShift(string shiftname);
+
+        List<VechileInfo> GetVechileInfo();
     }
 }

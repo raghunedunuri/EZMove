@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace EzMove.Controllers
 {
-    public class DriversController : Controller
-    {
-        // GET: Drivers
-        public ActionResult Index()
-        {
-            return View();
-        }
-    }
+    //public class DriversController : Controller
+    //{
+    //    // GET: Drivers
+    //    public ActionResult Index()
+    //    {
+    //        return View();
+    //    }
+    //}
 }

@@ -14,12 +14,13 @@ namespace EzMove
     {
         protected void Application_Start()
         {
+            Bootstrapper.Initialise();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Bootstrapper.Initialise();
+           
             GlobalConfiguration.Configuration
       .Formatters
       .JsonFormatter

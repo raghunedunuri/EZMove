@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EzMove.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,16 @@ namespace EzMove.Controllers
 {
     public class AdHocController : Controller
     {
+        private IEmployeeService EmployeeService;
+        public AdHocController(IEmployeeService EmployeeService)
+        {
+            this.EmployeeService = EmployeeService;
+        }
         // GET: AdHoc
         public ActionResult Index()
         {
-            //ViewBag.Vehicles = new Models.Vehicle().GetVehicles();
-            //ViewBag.Employees = new Models.EmployeeInfo().GetEmployeeInfo();
+            ViewBag.Vehicles = EmployeeService.GetVechileInfo();
+            ViewBag.Employees = EmployeeService.GetEmployeeByShift("all");
             return View();
         }
     }
