@@ -1,3 +1,0 @@
-
-BLOCKED FILE ALERT A file has been blocked due to ADP Policy:Context: 'jquery-1.10.2.intellisense.js'
-See your system administrator for further information. Copyright 1999-2013 McAfee, Inc.All Rights Reserved.http://www.mcafee.com
