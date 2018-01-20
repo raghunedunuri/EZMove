@@ -267,6 +267,7 @@
     <Compile Include="BootStrapper.cs" />
     <Compile Include="Controllers\AdHocController.cs" />
     <Compile Include="Controllers\APIControllers\DriverController.cs" />
+    <Compile Include="Controllers\APIControllers\ShiftController.cs" />
     <Compile Include="Controllers\APIControllers\UserLoginController.cs" />
     <Compile Include="Controllers\DriversController.cs" />
     <Compile Include="Controllers\APIControllers\EmployeeController.cs" />

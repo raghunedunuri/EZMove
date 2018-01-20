@@ -40,7 +40,9 @@ namespace EzMove.Cache
                 while (dr.Read())
                 {
                     lr = new LoginResponse();
-                    lr.UserID = Convert.ToInt32(dr["LoginID"]);
+                    lr.UserID = Convert.ToInt32(dr["UserID"]);
+                    lr.FirebaseID = dr["FirebaseID"].ToString();
+                    lr.LoginID = dr["LoginID"].ToString();
                     UserLogins[Token.ToString().ToLower()] = lr;
                     break;
                 }

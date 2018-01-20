@@ -54,9 +54,9 @@ namespace EzMove.Business
             employeeRepository.UpdateEmployeeShift(LoginID, Shift);
         }
 
-        public List<EmployeeInfo> GetEmployeeByShift(string shiftname)
+        public List<EmployeeInfo> GetEmployeeByShift(string shiftname, int officeid)
         {
-            return employeeRepository.GetEmployeeByShift(shiftname);
+            return employeeRepository.GetEmployeeByShift(shiftname, officeid);
         }
 
         public List<VechileInfo> GetVechileInfo()

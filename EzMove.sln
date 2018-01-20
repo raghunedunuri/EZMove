@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzMove.Cache", "EzMove.Cach
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzMove.MQUtilities", "EzMove.MQUtilities\EzMove.MQUtilities.csproj", "{210F5E80-F7BC-4EBA-8CE9-3E07B74220CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzMove.Communication", "EzMove.Communication\EzMove.Communication.csproj", "{4610F6D0-4A2B-4D81-89C6-A8DA3BC56B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzMove.MQJobProcessor", "EzMove.MQJobProcessor\EzMove.MQJobProcessor.csproj", "{71FA5FFC-4B59-4996-8C85-B995D48D0457}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{210F5E80-F7BC-4EBA-8CE9-3E07B74220CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{210F5E80-F7BC-4EBA-8CE9-3E07B74220CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{210F5E80-F7BC-4EBA-8CE9-3E07B74220CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4610F6D0-4A2B-4D81-89C6-A8DA3BC56B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4610F6D0-4A2B-4D81-89C6-A8DA3BC56B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4610F6D0-4A2B-4D81-89C6-A8DA3BC56B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4610F6D0-4A2B-4D81-89C6-A8DA3BC56B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FA5FFC-4B59-4996-8C85-B995D48D0457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FA5FFC-4B59-4996-8C85-B995D48D0457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FA5FFC-4B59-4996-8C85-B995D48D0457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FA5FFC-4B59-4996-8C85-B995D48D0457}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

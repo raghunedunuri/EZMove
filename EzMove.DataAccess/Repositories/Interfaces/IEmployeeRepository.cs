@@ -22,7 +22,7 @@ namespace EzMove.DataAcess
 
         void UpdateEmployeeShift(int LoginID, string Shift);
 
-        List<EmployeeInfo> GetEmployeeByShift(string shiftname);
+        List<EmployeeInfo> GetEmployeeByShift(string shiftname, int officeid);
 
         List<VechileInfo> GetVechileInfo();
     }

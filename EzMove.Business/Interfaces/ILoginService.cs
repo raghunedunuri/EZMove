@@ -10,5 +10,9 @@ namespace EzMove.Business
     public interface ILoginService
     {
         LoginResponse LoginUser(Login user);
+
+        OpResponse ChangeProfile(Profile profile);
+
+        OpResponse ForgotPassword(string LoginId);
     }
 }

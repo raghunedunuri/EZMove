@@ -43,6 +43,7 @@
     <Compile Include="DashBoard\DashboardInfo.cs" />
     <Compile Include="Drivers\DriverInfo.cs" />
     <Compile Include="Employees\EmployeeInfo.cs" />
+    <Compile Include="EventInfo.cs" />
     <Compile Include="Login\Login.cs" />
     <Compile Include="ResultMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

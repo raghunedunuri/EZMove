@@ -18,7 +18,7 @@ namespace EzMove.Controllers
         public ActionResult Index()
         {
             ViewBag.Vehicles = EmployeeService.GetVechileInfo();
-            ViewBag.Employees = EmployeeService.GetEmployeeByShift("all");
+            ViewBag.Employees = EmployeeService.GetEmployeeByShift("all", 0);
             return View();
         }
     }

@@ -8,7 +8,7 @@ namespace EzMove.Business
     {
         EmployeeInfo GetEmployeeInfo(int LoginID);
 
-        List<EmployeeInfo> GetEmployeeByShift(string shiftname);
+        List<EmployeeInfo> GetEmployeeByShift(string shiftname, int officeid);
 
         Trip GetEmployeeCurrentTrip(int LoginID);
 

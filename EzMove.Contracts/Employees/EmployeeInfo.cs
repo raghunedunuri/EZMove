@@ -8,16 +8,20 @@ namespace EzMove.Contracts
 {
     public class EmployeeInfo
     {
-        public int EmployeeID { get; set; }
+        public int UserID { get; set; }
         public int OfficeID { get; set; }
+        public string LoginID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string DisplayName { get; set; }
         public string PhNo { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }
-        public string AssociateID { get; set; }
+        public string EmployeeID { get; set; }
         public string UserType { get; set; }
         public string UserStatus { get; set; }
+        public string OfficeName { get; set; }
+        public string OfficeURL { get; set; }
         public EmployeeShiftInfo ShiftInfo { get; set; }
         public EZMoveAddress Address { get; set; }
         public string PicURL { get; set; }

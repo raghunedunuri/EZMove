@@ -27,5 +27,11 @@ namespace EzMove.DataAcess
         void OpenConnection();
 
         void RollbackTransaction();
+
+        IDbConnection GetConnection();
+
+        IDbCommand GetCommand(string commandText, CommandType commandType, IDbConnection currConnection);
+
+        void AddParameter(string parameterName, object value, IDbCommand dbCommand);
     }
 }

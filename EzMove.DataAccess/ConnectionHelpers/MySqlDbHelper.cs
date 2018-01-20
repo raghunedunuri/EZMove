@@ -9,6 +9,7 @@ namespace EzMove.DataAcess
         #region Variables
         private IDbConnection connection;
         private IDbCommand command;
+        private IConnectionManager conManager;
         #endregion
 
         #region Constructor
@@ -16,6 +17,7 @@ namespace EzMove.DataAcess
         {
             try
             {
+                conManager = connectionManager;
                 connection = connectionManager.GetConnection();                
             }
             catch (Exception ex)
@@ -25,6 +27,19 @@ namespace EzMove.DataAcess
         }
         #endregion
         #region PublicMethods
+
+        public IDbConnection GetConnection()
+        {
+            IDbConnection dConnection = conManager.GetConnection();
+            dConnection.Open();
+            return dConnection;
+        }
+
+        public IDbCommand GetCommand( string commandText, CommandType commandType, IDbConnection currConnection )
+        {
+            IDbCommand dbcommand = new MySqlCommand(commandText, currConnection as MySqlConnection) { CommandType = commandType };
+            return dbcommand;
+        }
 
         #region AddParameter
         /// <summary>
@@ -36,6 +51,12 @@ namespace EzMove.DataAcess
         {
             MySqlParameter parameter = new MySqlParameter(parameterName, value);
             command.Parameters.Add(parameter);
+        }
+
+        public void AddParameter(string parameterName, object value, IDbCommand dbCommand)
+        {
+            MySqlParameter parameter = new MySqlParameter(parameterName, value);
+            dbCommand.Parameters.Add(parameter);
         }
         #endregion
 
@@ -189,6 +210,7 @@ namespace EzMove.DataAcess
                 throw;
             }
         }
+
         #endregion
 
         #region ExecuteScalar

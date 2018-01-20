@@ -31,49 +31,49 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/18/2017 04:43:11</publishTime>
     </File>
     <File Include="bin/EzMove.Business.dll">
-      <publishTime>01/05/2018 00:35:52</publishTime>
+      <publishTime>01/20/2018 07:12:49</publishTime>
     </File>
     <File Include="bin/EzMove.Business.pdb">
-      <publishTime>01/05/2018 00:35:52</publishTime>
+      <publishTime>01/20/2018 07:12:49</publishTime>
     </File>
     <File Include="bin/EzMove.Cache.dll">
-      <publishTime>01/05/2018 00:35:51</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.Cache.pdb">
-      <publishTime>01/05/2018 00:35:51</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.Common.dll">
-      <publishTime>01/04/2018 22:52:45</publishTime>
+      <publishTime>01/20/2018 05:17:49</publishTime>
     </File>
     <File Include="bin/EzMove.Common.pdb">
-      <publishTime>01/04/2018 22:52:45</publishTime>
+      <publishTime>01/20/2018 05:17:49</publishTime>
     </File>
     <File Include="bin/EzMove.Contracts.dll">
-      <publishTime>01/05/2018 00:05:07</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.Contracts.pdb">
-      <publishTime>01/05/2018 00:05:07</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.DataAccess.dll">
-      <publishTime>01/05/2018 00:35:51</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.DataAccess.dll.config">
       <publishTime>01/02/2018 10:12:44</publishTime>
     </File>
     <File Include="bin/EzMove.DataAccess.pdb">
-      <publishTime>01/05/2018 00:35:51</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.dll">
-      <publishTime>01/05/2018 01:16:43</publishTime>
+      <publishTime>01/20/2018 07:12:56</publishTime>
     </File>
     <File Include="bin/EzMove.MQUtilities.dll">
-      <publishTime>01/04/2018 22:52:45</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.MQUtilities.pdb">
-      <publishTime>01/04/2018 22:52:45</publishTime>
+      <publishTime>01/20/2018 07:12:48</publishTime>
     </File>
     <File Include="bin/EzMove.pdb">
-      <publishTime>01/05/2018 01:16:43</publishTime>
+      <publishTime>01/20/2018 07:12:56</publishTime>
     </File>
     <File Include="bin/log4net.dll">
       <publishTime>03/08/2017 19:26:22</publishTime>
@@ -436,7 +436,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2018 13:11:08</publishTime>
     </File>
     <File Include="Uploads/Shifts/Shifts.xlsx">
-      <publishTime>01/05/2018 01:12:12</publishTime>
+      <publishTime>01/05/2018 02:00:31</publishTime>
     </File>
     <File Include="Views/AdHoc/Index.cshtml">
       <publishTime>01/05/2018 10:37:22</publishTime>
@@ -481,7 +481,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/02/2018 19:15:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/05/2018 00:38:26</publishTime>
+      <publishTime>01/20/2018 05:31:47</publishTime>
     </File>
   </ItemGroup>
 </Project>

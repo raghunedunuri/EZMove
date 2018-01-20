@@ -15,16 +15,18 @@ namespace EzMove.Controllers
     public class EmployeeController : ApiController
     {
         private IEmployeeService EmployeeService;
-        public EmployeeController(IEmployeeService EmployeeService)
+        private ILoginService LoginService;
+
+        public EmployeeController(IEmployeeService EmployeeService, ILoginService LoginService)
         {
             this.EmployeeService = EmployeeService;
+            this.LoginService = LoginService;
         }
 
         [HttpGet]
         public HttpResponseMessage GetEmployeeInfo( )
         {
             var responseMessage = new HttpResponseMessage();
-
             try
             {
                 EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;
@@ -41,7 +43,6 @@ namespace EzMove.Controllers
         public HttpResponseMessage GetEmployeeCurrentTrip()
         {
             var responseMessage = new HttpResponseMessage();
-
             try
             {
                 EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;
@@ -54,5 +55,27 @@ namespace EzMove.Controllers
             return responseMessage;
         }
 
+        [HttpPost]
+        public HttpResponseMessage ChangeProfile(Profile profile)
+        {
+            var responseMessage = new HttpResponseMessage();
+            try
+            {
+                EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;
+                if (ezMoveIdentity != null && ezMoveIdentity.loginResponse != null)
+                {
+                    profile.LoginId = ezMoveIdentity.loginResponse.LoginID;
+                    OpResponse opResponse = LoginService.ChangeProfile(profile);
+                    responseMessage = Request.CreateResponse(HttpStatusCode.OK, opResponse );
+                }
+                else
+                    responseMessage = Request.CreateResponse(HttpStatusCode.Unauthorized, "Given User Name or Password is wrong");
+            }
+            catch (Exception ex)
+            {
+                responseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError, new ResultMessage(ex));
+            }
+            return responseMessage;
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace EzMove.Controllers
         // GET: Roster
         public ActionResult Index()
         {
-            ViewBag.Employees =  EmployeeService.GetEmployeeByShift("all");
+            ViewBag.Employees =  EmployeeService.GetEmployeeByShift("all",0);
             return View();
         }
         [HttpPost]
@@ -70,7 +70,7 @@ namespace EzMove.Controllers
 
         public ActionResult GetEmployeeInfo()
         {
-            return View(EmployeeService.GetEmployeeByShift("all"));
+            return View(EmployeeService.GetEmployeeByShift("all", 0));
         }
         public ActionResult Details(Int32 EmployeeID)
         {
