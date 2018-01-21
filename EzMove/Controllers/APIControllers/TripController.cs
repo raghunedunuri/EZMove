@@ -24,7 +24,6 @@ namespace EzMove.Controllers
         public HttpResponseMessage StartTrip(string TripID)
         {
             var responseMessage = new HttpResponseMessage();
-
             try
             {
                 EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;

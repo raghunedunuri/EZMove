@@ -20,7 +20,7 @@ namespace EzMove.DataAcess
 
         void DeActivateEmployee(int LoginID);
 
-        void UpdateEmployeeShift(int LoginID, string Shift);
+        void UpdateEmployeeShift(int LoginID, int Shift);
 
         List<EmployeeInfo> GetEmployeeByShift(string shiftname, int officeid);
 

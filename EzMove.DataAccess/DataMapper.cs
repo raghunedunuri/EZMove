@@ -43,7 +43,7 @@ namespace EzMove.DataAcess
                 trip.DriverData.DriverName = tripRow["FirstName"].ToString() + " " + tripRow["LastName"].ToString();
                 trip.DriverData.DriverPhoneNumber = tripRow["Phone"].ToString();
 
-                trip.PassengarInfo = new List<TripPerson>();
+                trip.PassengarInfo = new Dictionary<int, TripPerson>();
                 foreach ( DataRow dr in dtPersonInfo.Rows)
                 {
                     TripPerson pInfo = new TripPerson();
@@ -58,7 +58,7 @@ namespace EzMove.DataAcess
                     pInfo.PersonLocation = new EZMoveCoordinates();
                     pInfo.PersonLocation.Latitude = Convert.ToDouble(dr["Latitude"]);
                     pInfo.PersonLocation.Longitude = Convert.ToDouble(dr["Longitude"]);
-                    trip.PassengarInfo.Add(pInfo);
+                    trip.PassengarInfo.Add(pInfo.ID, pInfo);
                 }
             }
             return trip;

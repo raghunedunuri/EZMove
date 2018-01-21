@@ -25,5 +25,10 @@ namespace EzMove.Business
         {
             return shiftRepos.GetShiftDetails(ShiftName);
         }
+
+        public ShiftDates GetEmployeeeShift(int LoginId, string Date)
+        {
+            return shiftRepos.GetEmployeeeShift(LoginId, Date);
+        }
     }
 }

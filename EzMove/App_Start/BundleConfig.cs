@@ -8,7 +8,6 @@ namespace EzMove
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.UseCdn = true;
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -22,8 +21,7 @@ namespace EzMove
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.min.js",
-                      "~/Scripts/respond.js",
-                      "~/Scripts/custom.js"));
+                      "~/Scripts/respond.js"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.min.js",
                       "~/Scripts/angular-ui-router.min.js",
@@ -31,16 +29,13 @@ namespace EzMove
                       "~/Scripts/app/controllers/employeecontroller.js",
                       "~/Scripts/ui-bootstrap-tpls-2.5.0.min.js")
                       );
-            bundles.Add(new ScriptBundle("~/bundles/maps").Include(
-                "~/Scripts/map.js"));
             //Style Bundles
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/xeditable.min.css",
-                      "~/Content/login.css",
-                      "~/Content/custom.css"));
+                      "~/Content/login.css"));
         }
     }
 }

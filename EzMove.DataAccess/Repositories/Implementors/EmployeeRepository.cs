@@ -22,7 +22,7 @@ namespace EzMove.DataAcess.Repositories
                 using (IDbCommand dbCommand = dbHelper.GetCommand("getemployeeinfo", CommandType.StoredProcedure, dbConnection))
                 {
                     dbHelper.AddParameter("userid", userID, dbCommand);
-                    using (IDataReader dr = dbHelper.ExecuteReader())
+                    using (IDataReader dr = dbCommand.ExecuteReader())
                     {
                         while (dr.Read())
                         {
@@ -116,8 +116,18 @@ namespace EzMove.DataAcess.Repositories
         public void DeActivateEmployee(int LoginID)
         { }
 
-        public void UpdateEmployeeShift(int LoginID, string Shift)
-        { }
+        public void UpdateEmployeeShift(int LoginID, int Shift)
+        {
+            using (IDbConnection dbConnection = dbHelper.GetConnection())
+            {
+                using (IDbCommand dbCommand = dbHelper.GetCommand("updateemployeeshift", CommandType.StoredProcedure, dbConnection))
+                {
+                    dbHelper.AddParameter("userid", LoginID, dbCommand);
+                    dbHelper.AddParameter("shiftid", Shift, dbCommand);
+                    dbCommand.ExecuteNonQuery();
+                }
+            }
+        }
 
         public List<EmployeeInfo> GetEmployeeByShift(string shiftname, int officeid)
         {

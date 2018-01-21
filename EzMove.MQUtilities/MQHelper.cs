@@ -1,6 +1,7 @@
 ﻿using EzMove.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Messaging;
 using System.Text;
@@ -16,11 +17,20 @@ namespace EzMove.MQUtilities
 
     public  class BatchRequest
     {
-        public  string QueueTarget { get; }
+        public  string QueueTarget { get; set; }
     }
 
     public class MQManager
     {
+        private static string TripQueue;
+        private static string EmployeeQueue;
+
+        static MQManager()
+        {
+            TripQueue = ConfigurationManager.AppSettings["TripUpateQueue"];
+            EmployeeQueue = ConfigurationManager.AppSettings["EmployeeUpateQueue"];
+
+        }
         public static void Queue(BatchRequest batchRequest)
         {
             try
@@ -45,6 +55,36 @@ namespace EzMove.MQUtilities
             MessageQueue queue = new MessageQueue(queueName, accessMode);
             queue.Formatter = new ActiveXMessageFormatter();
             return queue;
+        }
+
+        public static void PushTripStatus( string TripID, EventDef aEvent )
+        {
+            MessageQueue queue = GetQueue(TripQueue, QueueAccessMode.Send);
+            MessageQueueTransactionType txnType = MessageQueueTransactionType.Single;
+            MQBatchRequest mqBatchRequest = new MQBatchRequest()
+            {
+                EventType = aEvent,
+                MessageData = TripID,
+                QueueTarget = TripQueue
+            };
+            queue.Send(mqBatchRequest, txnType);
+        }
+
+        public static void PushTripInfo(string TripID, int EmployeeID, EventDef aEvent)
+        {
+            MessageQueue queue = GetQueue(TripQueue, QueueAccessMode.Send);
+            MessageQueueTransactionType txnType = MessageQueueTransactionType.Single;
+            MQBatchRequest mqBatchRequest = new MQBatchRequest()
+            {
+                EventType = aEvent,
+                MessageData = new TripPersonUpdate()
+                {
+                    TripID = TripID,
+                    EmployeeID = EmployeeID
+                },
+                QueueTarget = TripQueue
+            };
+            queue.Send(mqBatchRequest, txnType);
         }
     }
 }

@@ -90,7 +90,7 @@
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="OpenXml.Excel.Data">
-      <HintPath>..\bin\OpenXml.Excel.Data.dll</HintPath>
+      <HintPath>..\..\..\Transport\EzMove\EzMove\EzMove\bin\OpenXml.Excel.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -267,6 +267,7 @@
     <Compile Include="BootStrapper.cs" />
     <Compile Include="Controllers\AdHocController.cs" />
     <Compile Include="Controllers\APIControllers\DriverController.cs" />
+    <Compile Include="Controllers\APIControllers\SearchController.cs" />
     <Compile Include="Controllers\APIControllers\ShiftController.cs" />
     <Compile Include="Controllers\APIControllers\UserLoginController.cs" />
     <Compile Include="Controllers\DriversController.cs" />
@@ -287,9 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\login.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Content\xeditable.min.css" />
     <Content Include="favicon.ico" />
@@ -297,62 +296,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="images\american-express.png" />
     <Content Include="images\au.svg" />
-    <Content Include="images\cropper.jpg" />
-    <Content Include="images\favicon.ico" />
     <Content Include="images\gb.svg" />
-    <Content Include="images\img.jpg" />
     <Content Include="images\in.svg" />
-    <Content Include="images\inbox.png" />
     <Content Include="images\map.png" />
-    <Content Include="images\mastercard.png" />
-    <Content Include="images\media.jpg" />
-    <Content Include="images\paypal.png" />
-    <Content Include="images\picture.jpg" />
-    <Content Include="images\prod-1.jpg" />
-    <Content Include="images\prod-2.jpg" />
-    <Content Include="images\prod-3.jpg" />
-    <Content Include="images\prod-4.jpg" />
-    <Content Include="images\prod-5.jpg" />
     <Content Include="images\trips.png" />
     <Content Include="images\us.svg" />
-    <Content Include="images\user.png" />
-    <Content Include="images\visa.png" />
-    <Content Include="Scripts\ai.0.22.9-build00167.js" />
-    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Scripts\angular-animate.js" />
-    <Content Include="Scripts\angular-animate.min.js" />
-    <Content Include="Scripts\angular-aria.js" />
-    <Content Include="Scripts\angular-aria.min.js" />
-    <Content Include="Scripts\angular-cookies.js" />
-    <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
-    <Content Include="Scripts\angular-loader.js" />
-    <Content Include="Scripts\angular-loader.min.js" />
-    <Content Include="Scripts\angular-message-format.js" />
-    <Content Include="Scripts\angular-message-format.min.js" />
-    <Content Include="Scripts\angular-messages.js" />
-    <Content Include="Scripts\angular-messages.min.js" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-parse-ext.js" />
-    <Content Include="Scripts\angular-parse-ext.min.js" />
-    <Content Include="Scripts\angular-resource.js" />
-    <Content Include="Scripts\angular-resource.min.js" />
-    <Content Include="Scripts\angular-route.js" />
-    <Content Include="Scripts\angular-route.min.js" />
-    <Content Include="Scripts\angular-sanitize.js" />
-    <Content Include="Scripts\angular-sanitize.min.js" />
-    <Content Include="Scripts\angular-scenario.js" />
-    <Content Include="Scripts\angular-touch.js" />
-    <Content Include="Scripts\angular-touch.min.js" />
-    <Content Include="Scripts\angular-ui-router.js" />
-    <Content Include="Scripts\angular-ui-router.min.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\controllers\employeecontroller.js" />
-    <Content Include="Scripts\app\custom.js" />
     <Content Include="Scripts\app\partials\Communication.html" />
     <Content Include="Scripts\app\partials\Default.html" />
     <Content Include="Scripts\app\partials\Employee\Details.html" />
@@ -367,10 +317,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Scripts\app\services\employeeservice.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -383,24 +329,8 @@
     <Content Include="Scripts\angular-loader.min.js.map" />
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
-    <Content Include="Scripts\app\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Scripts\_references.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\login.js" />
-    <Content Include="Scripts\map.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\ui-bootstrap-tpls-2.5.0.min.js" />
-    <Content Include="Scripts\xeditable.min.js" />
     <Content Include="Uploads\Shifts\MOCK_DATA.xlsx" />
     <Content Include="Uploads\Shifts\Shifts.xlsx" />
     <Content Include="Web.config" />
@@ -425,10 +355,11 @@
     <Content Include="Views\Shifts\Index.cshtml" />
     <Content Include="Views\Trips\Index.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout_old.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\app\controllers\" />
+    <Folder Include="Scripts\app\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

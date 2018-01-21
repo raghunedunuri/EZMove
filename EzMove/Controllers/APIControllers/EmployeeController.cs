@@ -77,5 +77,41 @@ namespace EzMove.Controllers
             }
             return responseMessage;
         }
+
+        [HttpPost]
+        public HttpResponseMessage UpdateAddress(EZMoveAddress Address)
+        {
+            var responseMessage = new HttpResponseMessage();
+            try
+            {
+                EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;
+                if (ezMoveIdentity != null && ezMoveIdentity.loginResponse != null)
+                {
+                    EmployeeService.UpdateEmployeeAddress(ezMoveIdentity.loginResponse.UserID, Address);
+                }
+                else
+                    responseMessage = Request.CreateResponse(HttpStatusCode.Unauthorized, "Given User Name or Password is wrong");
+            }
+            catch (Exception ex)
+            {
+                responseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError, new ResultMessage(ex));
+            }
+            return responseMessage;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage Logout(Login login)
+        {
+            var responseMessage = new HttpResponseMessage();
+            try
+            {
+                responseMessage = Request.CreateResponse(HttpStatusCode.OK, LoginService.ForgotPassword(login.LoginId));
+            }
+            catch (Exception ex)
+            {
+                responseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError, new ResultMessage(ex));
+            }
+            return responseMessage;
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace EzMove.Business
 
         void UpdateTripReview(string TripID, int EmployeeID, int Rating);
 
-        void UpdateTripStatus(string TripID, int EmployeeID, string Status); //NOSHOW, SHOW
+        void UpdateTripStatus(string TripID, int EmployeeID, string Status, int UpdateuserId); //NOSHOW, SHOW
 
         void UpdateTripPersonStatus(string TripID, int EmployeeID, string Status, int UpdateUserId);
 

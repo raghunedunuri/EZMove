@@ -12,5 +12,7 @@ namespace EzMove.DataAccess.Repositories.Interfaces
         void AddShift(Shift shift);
 
         Shift GetShiftDetails(string ShiftName);
+
+        ShiftDates GetEmployeeeShift(int LoginID, string ShiftName);
     }
 }

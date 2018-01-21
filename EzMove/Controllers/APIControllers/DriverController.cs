@@ -41,7 +41,22 @@ namespace EzMove.Controllers
         public HttpResponseMessage GetDriverCurrentTrip()
         {
             var responseMessage = new HttpResponseMessage();
+            try
+            {
+                EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;
+                responseMessage = Request.CreateResponse(HttpStatusCode.OK, DriverService.GetDriverCurrentTrip(ezMoveIdentity.loginResponse.UserID));
+            }
+            catch (Exception ex)
+            {
+                responseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError, new ResultMessage(ex));
+            }
+            return responseMessage;
+        }
 
+        [HttpGet]
+        public HttpResponseMessage GetAllDriverTrips( TripDates tripDates )
+        {
+            var responseMessage = new HttpResponseMessage();
             try
             {
                 EzMoveIdentity ezMoveIdentity = (EzMoveIdentity)HttpContext.Current.User.Identity;

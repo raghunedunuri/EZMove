@@ -20,7 +20,7 @@ namespace EzMove.DataAccess.Repositories.Implementors
 
         public LoginResponse LoginUser(Login user)
         {
-            LoginResponse lr = GetUser(user.LoginId, user.Password);
+            LoginResponse lr = CreateUser(user);
             
             if (lr != null)
                 CreateToken(lr);
@@ -96,7 +96,31 @@ namespace EzMove.DataAccess.Repositories.Implementors
             return email;
         }
 
-        private LoginResponse GetUser( string LoginId, string Password)
+        public LoginResponse GetUser(string Token)
+        {
+            LoginResponse lr = null;
+            using (IDbConnection dbConnection = dbHelper.GetConnection())
+            {
+                using (IDbCommand dbCommand = dbHelper.GetCommand("getsession", CommandType.StoredProcedure, dbConnection))
+                {
+                    dbHelper.AddParameter("token", Token, dbCommand);
+                    using (IDataReader dr = dbCommand.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lr = new LoginResponse();
+                            lr.UserID = Convert.ToInt32(dr["UserID"]);
+                            lr.FirebaseID = dr["FirebaseID"].ToString();
+                            lr.LoginID = dr["LoginID"].ToString();
+                            break;
+                        }
+                    }
+                }
+            }
+            return lr;
+        }
+
+        private LoginResponse CreateUser( Login login)
         {
             LoginResponse lr = null;
 
@@ -104,8 +128,8 @@ namespace EzMove.DataAccess.Repositories.Implementors
             {
                 using (IDbCommand dbCommand = dbHelper.GetCommand("loginuser", CommandType.StoredProcedure, dbConnection))
                 {
-                    dbHelper.AddParameter("userlogin", LoginId, dbCommand);
-                    dbHelper.AddParameter("userpwd", Password, dbCommand);
+                    dbHelper.AddParameter("userlogin", login.LoginId, dbCommand);
+                    dbHelper.AddParameter("userpwd", login.Password, dbCommand);
 
                     using (IDataReader dr = dbCommand.ExecuteReader())
                     {
@@ -113,7 +137,8 @@ namespace EzMove.DataAccess.Repositories.Implementors
                         {
                             lr = new LoginResponse();
                             lr.UserID = Convert.ToInt32(dr["USERID"]);
-                            lr.LoginID = LoginId;
+                            lr.LoginID = login.LoginId;
+                            lr.FirebaseID = login.FirebaseID;
                             lr.PhoneNumber = dr["Phone"].ToString();
                             lr.Email = dr["Email"].ToString();
                             lr.UserType = dr["UserType"].ToString();
@@ -136,7 +161,7 @@ namespace EzMove.DataAccess.Repositories.Implementors
                 using (IDbCommand dbCommand = dbHelper.GetCommand("createsession", CommandType.StoredProcedure, dbConnection))
                 {
                     dbHelper.AddParameter("token", lr.Token, dbCommand);
-                    dbHelper.AddParameter("loginid", lr.LoginID, dbCommand);
+                    dbHelper.AddParameter("loginid", lr.UserID, dbCommand);
                     dbHelper.AddParameter("FBID", lr.FirebaseID, dbCommand);
                     dbHelper.AddParameter("userid", lr.UserID, dbCommand);
                     dbCommand.ExecuteNonQuery();

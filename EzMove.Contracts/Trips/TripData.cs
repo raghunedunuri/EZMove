@@ -19,6 +19,12 @@ namespace EzMove.Contracts
         public string Status { get; set; }
     }
 
+    public class TripDates
+    {
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+    }
+
     public class TripPerson
     {
         public int Order { get; set; }
@@ -113,7 +119,7 @@ namespace EzMove.Contracts
         public EZMoveCoordinates OfficeAddr { get; set; }
         public string Status { get; set; } //STARTED, INPROGRESS, FAILED
         public string Reason { get; set; } //InCase of failed
-        public List<TripPerson> PassengarInfo { get; set; }
+        public Dictionary<int, TripPerson> PassengarInfo { get; set; }
         public EZMoveAddressExt CurrentLocation { get; set; }
         public String TripURL { get; set; }
         public string TotalDistance { get; set; }

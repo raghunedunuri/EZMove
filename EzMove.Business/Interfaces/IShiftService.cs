@@ -12,5 +12,7 @@ namespace EzMove.Business
         void AddShift(Shift shift);
 
         Shift GetShiftDetails(string ShiftName);
+
+        ShiftDates GetEmployeeeShift(int LoginID, string ShiftName);
     }
 }

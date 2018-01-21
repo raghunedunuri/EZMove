@@ -16,5 +16,10 @@ namespace EzMove.DataAccess.Repositories.Implementors
         {
             return new Shift();
         }
+
+        public ShiftDates GetEmployeeeShift(int LoginID, string ShiftName)
+        {
+            return new ShiftDates();
+        }
     }
 }

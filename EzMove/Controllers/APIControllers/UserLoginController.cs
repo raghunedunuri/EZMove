@@ -31,7 +31,7 @@ namespace EzMove.Controllers.APIControllers
             }
             catch (Exception ex)
             {
-                responseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError, new ResultMessage(ex));
+                responseMessage = Request.CreateResponse(HttpStatusCode.InternalServerError, "Something is wrong, Please try after some time");
             }
             return responseMessage;
         }

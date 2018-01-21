@@ -57,5 +57,10 @@ namespace EzMove.DataAccess.Repositories.Implementors
             }
             return dashboardInfo;
         }
+
+        public List<EmployeeInfo> SearchEmployees( string searchstring)
+        {
+            return new List<EmployeeInfo>();
+        }
     }
 }

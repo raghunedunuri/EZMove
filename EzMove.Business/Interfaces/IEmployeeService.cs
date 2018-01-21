@@ -22,7 +22,7 @@ namespace EzMove.Business
 
         void DeActivateEmployee(int LoginID);
 
-        void UpdateEmployeeShift(int LoginID, string Shift);
+        void UpdateEmployeeShift(int LoginID, int Shift);
 
         List<VechileInfo> GetVechileInfo();
     }

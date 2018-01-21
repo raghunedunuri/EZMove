@@ -49,7 +49,7 @@ namespace EzMove.Business
             employeeRepository.DeActivateEmployee(LoginID);
         }
 
-        public void UpdateEmployeeShift(int LoginID, string Shift)
+        public void UpdateEmployeeShift(int LoginID, int Shift)
         {
             employeeRepository.UpdateEmployeeShift(LoginID, Shift);
         }

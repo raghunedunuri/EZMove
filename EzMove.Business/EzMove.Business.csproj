@@ -71,6 +71,10 @@
       <Project>{d1d2825c-add2-4a03-b3da-53b055703231}</Project>
       <Name>EzMove.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EzMove.MQUtilities\EzMove.MQUtilities.csproj">
+      <Project>{210f5e80-f7bc-4eba-8ce9-3e07b74220ca}</Project>
+      <Name>EzMove.MQUtilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
