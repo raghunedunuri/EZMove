@@ -63,6 +63,5 @@ namespace EzMove.Business
         {
             return employeeRepository.GetVechileInfo();
         }
-
     }
 }

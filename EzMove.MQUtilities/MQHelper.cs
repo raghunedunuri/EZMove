@@ -57,6 +57,13 @@ namespace EzMove.MQUtilities
             return queue;
         }
 
+        public static void QueueEmployeeUpdate( MQBatchRequest batchRequest )
+        {
+            MessageQueue queue = GetQueue(EmployeeQueue, QueueAccessMode.Send);
+            batchRequest.QueueTarget = EmployeeQueue;
+            queue.Send(batchRequest, MessageQueueTransactionType.Single);
+        }
+
         public static void PushTripStatus( string TripID, EventDef aEvent )
         {
             MessageQueue queue = GetQueue(TripQueue, QueueAccessMode.Send);

@@ -18,5 +18,7 @@ namespace EzMove.DataAccess.Repositories.Interfaces
         LoginResponse GetUser(string Token);
 
         string GetEmail(string LoginID);
+
+        LoginResponse GetUserByID(string LoginID);
     }
 }

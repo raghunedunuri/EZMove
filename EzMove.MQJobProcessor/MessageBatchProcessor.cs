@@ -16,15 +16,42 @@ namespace EzMove.MQJobProcessor
 
         public override void Process()
         {
-            bool result = false;
-             
             try
             {
                 switch (BatchRequest.EventType)
                 {
+                    case EventDef.FORGOTPASSWORD:
+                        break;
+                    case EventDef.STARTTRIP:
+                        break;
+                    case EventDef.STOPTRIP:
+                        break;
+                    case EventDef.EMPLOYEESHOW:
+                        break;
+                    case EventDef.EMPLOYEENOSHOW:
+                        break;
+                    case EventDef.LOCATIONUPDATE:
+                        break;
+                    case EventDef.NEWEMPLOYEE:
+                        break;
                     case EventDef.ADDRESSUPDATE:
                         break;
-
+                    case EventDef.NEWVECHILE:
+                        break;
+                    case EventDef.VECHILEBREAKDOWN:
+                        break;
+                    case EventDef.TRAFFICUPDATE:
+                        break;
+                    case EventDef.SOS:
+                        break;
+                    case EventDef.ADHOCMESSAGE:
+                        break;
+                    case EventDef.ADHOCTRIP:
+                        break;
+                    case EventDef.ADHOCREPORT:
+                        break;
+                    case EventDef.ROASTERUPDATE:
+                        break;
                 }
             }
             catch (Exception ex)
