@@ -1,0 +1,28 @@
+﻿@model EzMove.Contracts.EmployeeInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#EmployeeProfile" aria-controls="first" role="tab" data-toggle="tab">Employee Profile</a></li>
+		<li role="presentation"><a href="#EmployeeAddress" aria-controls="second" role="tab" data-toggle="tab">Employee Address</a></li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="EmployeeProfile">
+			@Html.Partial("_ViewEmployeeProfile")
+		</div>
+		<div role="tabpanel" class="tab-pane" id="EmployeeAddress">
+			@Html.Partial("_ViewEmployeeAddress")
+		</div>
+	</div>
+
+</div>

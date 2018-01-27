@@ -18,6 +18,8 @@ namespace EzMove.DataAcess
         void AddDriver(DriverInfo drvInfo);
 
         void DeActivateDriver(int LoginID);
+
+        List<DriverInfo> GetDrivers();
     }
 }
  

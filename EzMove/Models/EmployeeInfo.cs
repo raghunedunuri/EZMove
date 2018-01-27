@@ -21,7 +21,7 @@ namespace EzMove.Models
         public EZMoveAddress Address { get; set; }
         public string PicURL { get; set; }
 
-        public List<EmployeeInfo> GetEmployeeInfo()
+/*        public List<EmployeeInfo> GetEmployeeInfo()
         {
             EmployeeShiftInfo shift1 = new EmployeeShiftInfo { CurrentShift = "UK", ShiftStartTime = DateTime.Now.ToShortTimeString(), ShiftEndTime = DateTime.Now.AddHours(8).ToShortTimeString() };
             EmployeeShiftInfo shift2 = new EmployeeShiftInfo { CurrentShift = "US", ShiftStartTime = DateTime.Now.ToShortTimeString(), ShiftEndTime = DateTime.Now.AddHours(8).ToShortTimeString() };
@@ -128,7 +128,7 @@ namespace EzMove.Models
         };
 
             return empInfoList;
-        }
+        }*/
 
     }
 

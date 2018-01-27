@@ -72,9 +72,9 @@ namespace EzMove.Controllers
         {
             return View(EmployeeService.GetEmployeeByShift("all", 0));
         }
-        public ActionResult Details(Int32 EmployeeID)
+        public ActionResult Details(Int32 id)
         {
-            var employeeInfo = EmployeeService.GetEmployeeInfo(EmployeeID);
+            var employeeInfo = EmployeeService.GetEmployeeInfo(id);
             return View(employeeInfo);
         }
     }

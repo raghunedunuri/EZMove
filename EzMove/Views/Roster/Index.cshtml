@@ -37,7 +37,7 @@
                 @foreach (var item in ViewBag.Employees)
                 {
                     <tr>
-                        <td>@Html.ActionLink("Details", "Details", "Roster", new { EmployeeID = @item.EmployeeID}, new { @class = "text-info" })</td>
+                        <td>@Html.ActionLink("Details", "Details", "Roster", new { id = @item.EmployeeID}, new { @class = "text-info" })</td>
                         <td>@item.EmployeeID</td>
                         <td>@item.FirstName</td>
                         <td>@item.LastName</td>
