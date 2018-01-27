@@ -95,6 +95,23 @@ namespace EzMove.DataAccess.Repositories.Implementors
             }
             return email;
         }
+        public LoginResponse GetUserByID(string LoginID)
+        {
+            LoginResponse lr = null;
+
+            using (IDbConnection dbConnection = dbHelper.GetConnection())
+            {
+                using (IDbCommand dbCommand = dbHelper.GetCommand("getuserbyloginid", CommandType.StoredProcedure, dbConnection))
+                {
+                    dbHelper.AddParameter("userlogin", LoginID, dbCommand);
+                    using (IDataReader dr = dbCommand.ExecuteReader())
+                    {
+                        lr = DataMapper.ConvertLoginFromDR(dr); 
+                    }
+                }
+            }
+            return lr;
+        }
 
         public LoginResponse GetUser(string Token)
         {
@@ -133,20 +150,9 @@ namespace EzMove.DataAccess.Repositories.Implementors
 
                     using (IDataReader dr = dbCommand.ExecuteReader())
                     {
-                        while (dr.Read())
-                        {
-                            lr = new LoginResponse();
-                            lr.UserID = Convert.ToInt32(dr["USERID"]);
-                            lr.LoginID = login.LoginId;
-                            lr.FirebaseID = login.FirebaseID;
-                            lr.PhoneNumber = dr["Phone"].ToString();
-                            lr.Email = dr["Email"].ToString();
-                            lr.UserType = dr["UserType"].ToString();
-                            lr.Name = dr["DisplayName"].ToString();
-                            lr.Gender = dr["Gender"].ToString();
-                            lr.PicUrl = dr["Photo"].ToString();
-                            break;
-                        }
+                        lr = DataMapper.ConvertLoginFromDR(dr);
+                        lr.LoginID = login.LoginId;
+                        lr.FirebaseID = login.FirebaseID;
                     }
                 }
             }

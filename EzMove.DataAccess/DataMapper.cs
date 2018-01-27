@@ -63,5 +63,24 @@ namespace EzMove.DataAcess
             }
             return trip;
         }
+
+        public static LoginResponse ConvertLoginFromDR(IDataReader dr)
+        {
+            LoginResponse lr = null;
+
+            while (dr.Read())
+            {
+                lr = new LoginResponse();
+                lr.UserID = Convert.ToInt32(dr["USERID"]);
+                lr.PhoneNumber = dr["Phone"].ToString();
+                lr.Email = dr["Email"].ToString();
+                lr.UserType = dr["UserType"].ToString();
+                lr.Name = dr["DisplayName"].ToString();
+                lr.Gender = dr["Gender"].ToString();
+                lr.PicUrl = dr["Photo"].ToString();
+                break;
+            }
+            return lr;
+        }
     }
 }
