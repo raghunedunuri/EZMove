@@ -33,13 +33,31 @@ namespace EzMove.Cache
         public static void UpdateUser(LoginResponse lr)
         {
             string userKey = String.Format("user:{0}", lr.Token.ToString().ToLower());
-            cacheContext.Cache.SetObject(lr.Token.ToString().ToLower(), lr);
+            cacheContext.Cache.SetObject(lr.Token.ToString().ToLower(), lr, new[] { lr.LoginID, lr.UserID.ToString()});
         }
 
         public static LoginResponse GetUserInfo(string Token)
         {
             string userKey = String.Format("user:{0}", Token.ToString().ToLower());
-            return cacheContext.Cache.FetchObject<LoginResponse>(userKey, () => loginRepository.GetUser(Token));
+            LoginResponse lr = cacheContext.Cache.GetObject<LoginResponse>(userKey);
+            if (lr == null)
+            {
+                lr = loginRepository.GetUser(Token);
+                UpdateUser(lr);
+            }
+            return lr;
+        }
+
+        public static LoginResponse GetUserInfoByLoginId(string Id)
+        {
+            //string userKey = String.Format("user:{0}", Id.ToString().ToLower());
+            //IEnumerable< LoginResponse> lr = cacheContext.Cache.GetObjectsByTag<LoginResponse>(Id);
+            //if( lr == null )
+            //{
+            //    lr = loginRepository.GetUserByID(Id);
+            //    UpdateUser(lr);
+            //}
+            return new LoginResponse();
         }
 
         public static Trip UpdateTrip(string TripID, EventDef actualEvent)
