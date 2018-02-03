@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using EzMove.Contracts;
@@ -53,5 +54,9 @@ namespace EzMove.DataAcess
         //    DataSet ds = dbHelper.ExecuteDataSet();
         //    return ds.Tables[0].ToEntities<Offers>().ToList();
         //}
+        public List<DriverInfo> GetDrivers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,25 +1,26 @@
-﻿@model EzMove.Models.EmployeeInfo
+﻿@model EzMove.Contracts.EmployeeInfo
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Employee    Details</h2>
+<h2>Details</h2>
 
-<div>    
+<div>
+    <h4>EmployeeInfo</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Employee ID
+            @Html.DisplayNameFor(model => model.UserID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EmployeeID)
+            @Html.DisplayFor(model => model.UserID)
         </dd>
 
         <dt>
-            Office ID
+            @Html.DisplayNameFor(model => model.OfficeID)
         </dt>
 
         <dd>
@@ -27,7 +28,15 @@
         </dd>
 
         <dt>
-            First Name
+            @Html.DisplayNameFor(model => model.LoginID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoginID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
@@ -35,7 +44,7 @@
         </dd>
 
         <dt>
-           Last Name
+            @Html.DisplayNameFor(model => model.LastName)
         </dt>
 
         <dd>
@@ -43,7 +52,15 @@
         </dd>
 
         <dt>
-            Phone
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhNo)
         </dt>
 
         <dd>
@@ -67,15 +84,15 @@
         </dd>
 
         <dt>
-            Associate ID
+            @Html.DisplayNameFor(model => model.EmployeeID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AssociateID)
+            @Html.DisplayFor(model => model.EmployeeID)
         </dd>
 
         <dt>
-            User Type
+            @Html.DisplayNameFor(model => model.UserType)
         </dt>
 
         <dd>
@@ -83,14 +100,40 @@
         </dd>
 
         <dt>
-            Status
+            @Html.DisplayNameFor(model => model.UserStatus)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.UserStatus)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PicURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PicURL)
+        </dd>
+
     </dl>
 </div>
-<p>   
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

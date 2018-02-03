@@ -48,5 +48,10 @@ namespace EzMove.Business
         {
             driverRepos.DeActivateDriver(LoginID);
         }
+
+        public List<DriverInfo> GetDrivers()
+        {
+           return driverRepos.GetDrivers();
+        }
     }
 }

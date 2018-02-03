@@ -16,7 +16,8 @@ function Initialize() {
 	};
 
 	// This makes the div with id "map_canvas" a google map
-	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	if (document.getElementById("map_canvas") != null || document.getElementById("map_canvas") != undefined)
+		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
 	// This shows adding a simple pin "marker" - this happens to be the Tate Gallery in Liverpool!
 	var myLatlng = new google.maps.LatLng(53.40091, -2.994464);
