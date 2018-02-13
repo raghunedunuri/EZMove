@@ -13,6 +13,7 @@ namespace EzMove.Contracts
         public string FirebaseID { get; set; }
     }
 
+    [Serializable]
     public class LoginResponse
     {
         public Guid   Token { get; set; }

@@ -107,6 +107,7 @@ namespace EzMove.Contracts
         public string VechileModel { get; set; }
     }
 
+    [Serializable]
     public class Trip
     {
         public string TripID { get; set; }
